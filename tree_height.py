@@ -32,12 +32,12 @@ def main():
     # implement input form keyboard and from files
     text = input()
      
-    if text == "I":
+    if "I" in text:
         n = int(input())
         parents = list(map(int, input().split()))
         print(compute_height(n, parents))
         # input
-    if text == "F":
+    if "F" in text:
         files = input()
         # input file
         if "a" not in files:
