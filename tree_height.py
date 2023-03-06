@@ -2,11 +2,11 @@
 # 221RDB128 Bernhards Arnitis
 import sys
 import threading
-# import numpy
+
 
 
 def compute_height(n, parents):
-   # Write this function
+    max_height = 0
     nodes = [[] for _ in range(n)]
     root = None
     for i in range(n):
@@ -15,17 +15,15 @@ def compute_height(n, parents):
             root = i
         else:
             nodes[parent].append(i)
-    
-    max_height = 0
-    # Your code here
     st = [(root, 1)]
     while st:
-        node, augstums = st.pop()
-        max_height = max(max_height, augstums)
+        node, height = st.pop(0)
+        if height > max_height:
+            max_height = height
+        max_height = max(max_height, height)
         for child in nodes[node]:
-            st.append((child, augstums+1))
-            
-            return max_height
+            st.append((child, height+1))
+    return max_height
 
 
 def main():
@@ -37,9 +35,7 @@ def main():
         parents = list(map(int, input().split()))
         print(compute_height(n, parents))
     else:
-            
-            print("Invalid")
-            pass
+        print("Invalid")
         
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
