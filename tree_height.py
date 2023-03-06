@@ -35,13 +35,12 @@ def main():
         parents = list(map(int, input().split()))
         print(compute_height(n, parents))
     if text == "F":
-        files = '/workspaces/tree-height-from-empty-Barnitis/test/' + input()
-        if "a" in files:
-            return
-        with open(files, "r"):
-            n = int(files.readline())
-            parents = list((map(int, files.readline().split())))
-            print(compute_height(n, parents))
+        files = input()
+        if files and "a" not in files:
+            with open("./test/" + files ) as fr:
+                n = int(fr.readline())
+                parents = list((map(int, fr.readline().split())))
+                print(compute_height(n, parents))
         
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
