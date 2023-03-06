@@ -36,7 +36,6 @@ def main():
         print(compute_height(n, parents))
     else:
         print("Invalid")
-        
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
     
