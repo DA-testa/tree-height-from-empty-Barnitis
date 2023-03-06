@@ -9,12 +9,14 @@ def compute_height(n, parents):
     max_height = 0
     nodes = [[] for _ in range(n)]
     root = None
+    # nosaka root un max_height vertibas un nodes iespejamo garumu
     for i in range(n):
         parent = parents[i]
         if parent == -1:
             root = i
         else:
             nodes[parent].append(i)
+            
     st = [(root, 1)]
     while st:
         node, height = st.pop(0)
@@ -24,7 +26,7 @@ def compute_height(n, parents):
         for child in nodes[node]:
             st.append((child, height+1))
     return max_height
-
+        # nosaka koka garumu
 
 def main():
     # implement input form keyboard and from files
@@ -34,14 +36,15 @@ def main():
         n = int(input())
         parents = list(map(int, input().split()))
         print(compute_height(n, parents))
+        # input
     if text == "F":
         files = input()
-        if files and "a" not in files:
+        if "a" not in files:
             with open("./test/" + files ) as fr:
-                n = int(fr.readline())
-                parents = list((map(int, fr.readline().split())))
+                n = int(fr.readline().strip())
+                parents = list((map(int, fr.readline().strip().split())))
                 print(compute_height(n, parents))
-        
+        # files un testi
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
     
