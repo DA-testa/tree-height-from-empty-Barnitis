@@ -16,7 +16,7 @@ def compute_height(n, parents):
             root = i
         else:
             nodes[parent].append(i)
-            
+
     st = [(root, 1)]
     while st:
         node, height = st.pop(0)
@@ -39,6 +39,7 @@ def main():
         # input
     if text == "F":
         files = input()
+        # input file
         if "a" not in files:
             with open("./test/" + files ) as fr:
                 n = int(fr.readline().strip())
